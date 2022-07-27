@@ -1,9 +1,0 @@
-.new-todo{
-    display: flex;
-    flex-direction: column;
-}
-.text{
-}
-.send{
-    width: 50%;
-}
