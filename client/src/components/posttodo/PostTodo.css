@@ -1,0 +1,10 @@
+.new-todo{
+    display: flex;
+    flex-direction: column;
+}
+.text{
+    border: none;
+}
+.send{
+    width: 50%;
+}
