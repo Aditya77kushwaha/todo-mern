@@ -6,22 +6,22 @@ const PostTodo = () => {
   const [txt, settxt] = useState("");
   return (
     <div>
-      <div className='new-todo'>
+      <div className="new-todo">
         <input
-          type='text'
-          className='text'
+          type="text"
+          className="text"
           value={txt}
           onChange={(e) => settxt(e.target.value)}
         />
         <button
-          className='send'
+          className="send"
           onClick={() => {
             axios
               .post("http://localhost:8888/todo", {
-                todo: txt,
+                desc: txt,
               })
               .then((res) => {
-                console.log(res.data.msg);
+                console.log(res.data);
               });
           }}
         >
