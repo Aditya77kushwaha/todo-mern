@@ -21,7 +21,7 @@ const PostTodo = () => {
                 todo: txt,
               })
               .then((res) => {
-                console.log(res.msg);
+                console.log(res.data.msg);
               });
           }}
         >

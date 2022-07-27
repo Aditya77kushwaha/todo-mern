@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 5000
+const port = 8888
 const cors = require("cors")
 
 app.use(express.json())
@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 
 app.post("/todo", async (req, res) => {
     console.log(req.body.todo)
-    res.json({ msg: "Success" })
+    res.json({ msg:req.body.todo  })
 })
 
 app.listen(port, () => {
