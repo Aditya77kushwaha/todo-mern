@@ -44,6 +44,44 @@ app.get("/todos", async (req, res) => {
   }
 });
 
+//get a todo
+app.get("/todos/:id", async (req, res) => {
+  try {
+    const todos = await Todo.findById(req.params.id);
+    res.status(200).json(todos);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//update a todo
+app.put("/todos/:id", async (req, res) => {
+  //   const todo = await Todo.findById(req.params.id);
+  try {
+    const updatedTodo = await Todo.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: req.body,
+      },
+      { new: true }
+    );
+    res.status(200).json(updatedTodo);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//delete a todo
+app.delete("/todos/:id", async (req, res) => {
+  const todo = await Todo.findById(req.params.id);
+  try {
+    await todo.delete();
+    res.status(200).json("Todo has been deleted...");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //create a new todo
 app.post("/todo", async (req, res) => {
   console.log(req.body);
