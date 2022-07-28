@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./App.css";
 
 function App() {
   const [txt, settxt] = useState("");
@@ -10,16 +11,17 @@ function App() {
     });
   });
   return (
-    <div className="App">
-      <div className="new-todo">
+    <div className="wrapper">
+      <div className="search-input">
         <input
           type="text"
           className="text"
           value={txt}
           onChange={(e) => settxt(e.target.value)}
+          placeholder="Add a new task.."
         />
         <button
-          className="send"
+          className="icon"
           onClick={() => {
             axios
               .post("http://localhost:8888/todo", {
@@ -33,7 +35,7 @@ function App() {
               });
           }}
         >
-          Send
+        <div className="send"> <i class="fas fa-plus-square"></i></div>
         </button>
         <ul>
           {Object.keys(todos)?.map((x, ind) => {
@@ -71,6 +73,7 @@ function App() {
         </ul>
       </div>
     </div>
+    
   );
 }
 
