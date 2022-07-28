@@ -27,7 +27,6 @@ function App() {
               })
               .then((res) => {
                 axios.get("http://localhost:8888/todos").then((res) => {
-                  console.log(res.data);
                   settodos(res.data);
                 });
                 settxt("");
@@ -42,6 +41,30 @@ function App() {
               <li key={ind}>
                 {ind + 1 + ". "}
                 {todos[x].desc}
+                <button
+                  className="delete"
+                  onClick={() => {
+                    axios
+                      .delete(`http://localhost:8888/todos/${todos[x]._id}`)
+                      .then((res) => {
+                        console.log(res.data);
+                        axios.get("http://localhost:8888/todos").then((res) => {
+                          settodos(res.data);
+                        });
+                      });
+                  }}
+                >
+                  Done
+                </button>
+                {/* <button
+                  className="edit"
+                  onClick={() => {
+                    !txt && settxt(prompt("Enter new todo", txt));
+                    console.log(txt);
+                  }}
+                >
+                  Edit
+                </button> */}
               </li>
             );
           })}
