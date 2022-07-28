@@ -3,7 +3,6 @@ import axios from "axios";
 
 function App() {
   const [txt, settxt] = useState("");
-
   const [todos, settodos] = useState({});
   useEffect(() => {
     axios.get("http://localhost:8888/todos").then((res) => {
@@ -39,7 +38,12 @@ function App() {
         </button>
         <ul>
           {Object.keys(todos)?.map((x, ind) => {
-            return <li key={ind}>{todos[x].desc}</li>;
+            return (
+              <li key={ind}>
+                {ind + 1 + ". "}
+                {todos[x].desc}
+              </li>
+            );
           })}
         </ul>
       </div>
