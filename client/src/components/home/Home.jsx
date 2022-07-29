@@ -20,7 +20,7 @@ function Home({ client, setclient }) {
   const [txt, settxt] = useState("");
   const [todos, settodos] = useState({});
   useEffect(() => {
-    axios.get("http://localhost:8888/todos").then((res) => {
+    axios.get(`http://localhost:8888/todos/${client._id}`).then((res) => {
       settodos(res.data);
     });
   });
@@ -50,14 +50,18 @@ function Home({ client, setclient }) {
         <button
           className="send"
           onClick={() => {
+            console.log(client._id, client.username);
             axios
               .post("http://localhost:8888/todo", {
+                userId: client._id,
                 desc: txt,
               })
               .then((res) => {
-                axios.get("http://localhost:8888/todos").then((res) => {
-                  settodos(res.data);
-                });
+                axios
+                  .get(`http://localhost:8888/todos/${client._id}`)
+                  .then((res) => {
+                    settodos(res.data);
+                  });
                 settxt("");
               });
           }}
@@ -76,9 +80,11 @@ function Home({ client, setclient }) {
                     axios
                       .delete(`http://localhost:8888/todos/${todos[x]._id}`)
                       .then((res) => {
-                        axios.get("http://localhost:8888/todos").then((res) => {
-                          settodos(res.data);
-                        });
+                        axios
+                          .get(`http://localhost:8888/todos/${client._id}`)
+                          .then((res) => {
+                            settodos(res.data);
+                          });
                       });
                   }}
                 >
@@ -114,7 +120,7 @@ function Home({ client, setclient }) {
                         .then((res) => {
                           settxt("");
                           axios
-                            .get("http://localhost:8888/todos")
+                            .get(`http://localhost:8888/todos/${client._id}`)
                             .then((res) => {
                               settodos(res.data);
                             });
