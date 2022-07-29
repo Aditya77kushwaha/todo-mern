@@ -121,6 +121,7 @@ function Home({ client, setclient }) {
                         });
                       closeModal();
                     }}
+                    disabled={!txt}
                   >
                     Okay
                   </button>
