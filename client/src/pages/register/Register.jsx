@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
   const [user, setuser] = useState({
@@ -7,6 +8,7 @@ const Register = () => {
     email: "",
     password: "",
   });
+  const history = useHistory();
   const handleChange = (e) => {
     setuser((prevVal) => ({ ...prevVal, [e?.target?.name]: e?.target?.value }));
   };
@@ -41,7 +43,7 @@ const Register = () => {
         onClick={() => {
           console.log(user);
           axios.post("http://localhost:8888/register", user).then((res) => {
-            console.log(res.data);
+            history.push("/login");
           });
         }}
       >
