@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Login from "./pages/login/Login";
 import Home from "./components/home/Home";
+import Header from "./components/header/Header";
 import Register from "./pages/register/Register";
 import {
   BrowserRouter as Router,
@@ -19,6 +20,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+      <Header client={client} setclient={setclient} />
         <Switch>
           <Route exact path="/">
             {client?.username ? (
