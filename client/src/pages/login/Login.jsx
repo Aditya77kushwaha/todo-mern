@@ -1,16 +1,20 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ client, setclient }) => {
   const [user, setuser] = useState({
     username: "",
     email: "",
     password: "",
   });
-  const [user1, setuser1] = useState({});
+  const [islogin, setislogin] = useState(false);
+
+  const history = useHistory();
   const handleChange = (e) => {
     setuser((prevVal) => ({ ...prevVal, [e?.target?.name]: e?.target?.value }));
   };
+
   return (
     <div className="register">
       <input
@@ -30,21 +34,44 @@ const Login = () => {
         onChange={handleChange}
       />
       <button
-        className="register"
+        className="login"
         onClick={() => {
-          //   console.log(user);
-          axios.post("http://localhost:8888/login", user).then((res) => {
-            // setuser((prevVal) => ({
-            //   ...prevVal,
-            //   [user.username]: res.data.username,
-            // }));
-            setuser1(res.data);
-            // console.log(res.data);
-            console.log("user is ", user1);
-          });
+          setislogin(true);
+          axios
+            .post("http://localhost:8888/login", user)
+            .then((res) => {
+              setclient(res.data);
+              localStorage.setItem("client", JSON.stringify(res.data));
+            })
+            .catch((e) => {
+              console.log("LOGIN ERROR", e);
+            })
+            .finally(() => {
+              setislogin(false);
+              history.push("/");
+            });
         }}
+        disabled={islogin}
       >
         Login
+        {islogin && (
+          <>
+            <span
+              className="spinner-border spinner-border-sm ms-2"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Loading...</span>
+          </>
+        )}
+      </button>
+      <button
+        className="show"
+        onClick={() => {
+          console.log("user is ", client);
+        }}
+      >
+        Show
       </button>
     </div>
   );

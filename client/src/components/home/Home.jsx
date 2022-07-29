@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from "react-modal";
+// import { UserContext } from "../../Context";
 
 const customStyles = {
   content: {
@@ -15,7 +16,7 @@ const customStyles = {
 
 Modal.setAppElement("#root");
 
-function Home() {
+function Home({ client, setclient }) {
   const [txt, settxt] = useState("");
   const [todos, settodos] = useState({});
   useEffect(() => {
@@ -31,7 +32,6 @@ function Home() {
   }
 
   function afterOpenModal() {
-    // references are now sync'd and can be accessed.
     subtitle.style.color = "#f00";
   }
 
