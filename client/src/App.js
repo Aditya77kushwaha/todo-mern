@@ -35,16 +35,17 @@ function App() {
               });
           }}
         >
-        <div className="send"> <i class="fas fa-plus-square"></i></div>
+        <div className="send"> <i class="fas fa-plus-square"style={{fontSize:"22px",color:"red" }}></i></div>
         </button>
-        <ul>
+        <hr/>
+        <ul className="delete-box">
           {Object.keys(todos)?.map((x, ind) => {
             return (
-              <li key={ind}>
+              <li className="todo-list" key={ind}>
                 {ind + 1 + ". "}
-                {todos[x].desc}
+                <p className="desc">{todos[x].desc}</p>
                 <button
-                  className="delete"
+                  className="delete-btn"
                   onClick={() => {
                     axios
                       .delete(`http://localhost:8888/todos/${todos[x]._id}`)
@@ -56,7 +57,8 @@ function App() {
                       });
                   }}
                 >
-                  Done
+            
+                  <i className="remove" class='fas fa-cut' style={{fontSize:"20px",color:"red" }}></i>
                 </button>
                 {/* <button
                   className="edit"
