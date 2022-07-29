@@ -7,7 +7,7 @@ const Header = ({ client, setclient }) => {
     <div>
       {client?.username ? (
         <>
-          <p>"Hi " {client?.username}</p>
+          <p>Hi {client?.username}</p>
           <button
             onClick={() => {
               localStorage.clear();

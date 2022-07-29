@@ -65,14 +65,6 @@ const Login = ({ client, setclient }) => {
           </>
         )}
       </button>
-      <button
-        className="show"
-        onClick={() => {
-          console.log("user is ", client);
-        }}
-      >
-        Show
-      </button>
     </div>
   );
 };
