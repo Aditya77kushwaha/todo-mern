@@ -78,10 +78,11 @@ app.post("/login", async (req, res) => {
 });
 
 //todo routes
-//get all todos
-app.get("/todos", async (req, res) => {
+//get all todos of a user
+app.get("/todos/:username", async (req, res) => {
   try {
-    const todos = await Todo.find();
+    const user = await User.findOne({ _id: req.params.username });
+    const todos = await Todo.find({ userId: user._id });
     res.status(200).json(todos);
   } catch (err) {
     res.status(500).json(err);
