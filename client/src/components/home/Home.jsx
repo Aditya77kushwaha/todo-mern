@@ -47,7 +47,7 @@ function Home({ client, setclient }) {
           className="text"
           value={txt}
           onChange={(e) => settxt(e.target.value)}
-          placeholder="Add a new task.."
+          placeholder="Add a new task..."
         />
         <button
           className="icon"
@@ -66,15 +66,17 @@ function Home({ client, setclient }) {
         >
       <div className="send"> <i class="fas fa-plus-square"style={{fontSize:"22px",color:"red" }}></i></div>
         </button>
-       <hr />
-        <ul>
+        
+        <ul className="delete-box">
           {Object.keys(todos)?.map((x, ind) => {
             return (
-              <li key={ind}>
-                {ind + 1 + ". "}
-                {todos[x].desc}
+              <li className="todo-list" key={ind}>
+                <p className="desc">
+                {ind + 1 + "."}
+                {/* {todos[x].desc} */}
+                {todos[x].desc}</p>
                 <button
-                  className="delete"
+                  className="delete-btn"
                   onClick={() => {
                     axios
                       .delete(`http://localhost:8888/todos/${todos[x]._id}`)
@@ -85,12 +87,13 @@ function Home({ client, setclient }) {
                       });
                   }}
                 >
-                  Done
+                 <i className="remove" class="fas fa-check" style={{fontSize:"20px",color:"red" }}></i>
                 </button>
+               
                 <button className="edit" onClick={openModal}>
-                  Edit
+                <i class="fas fa-pencil-alt" style={{fontSize:"20px",color:"red"}}></i>
                 </button>
-                <Modal
+                <Modal className="poppups"
                   isOpen={modalIsOpen}
                   onAfterOpen={afterOpenModal}
                   onRequestClose={closeModal}
@@ -98,7 +101,7 @@ function Home({ client, setclient }) {
                   contentLabel="Example Modal"
                 >
                   <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
-                    Edit `{todos[x].desc}`
+                    <span>Edit</span> <br />``{todos[x].desc}``
                   </h2>
                   <button onClick={closeModal}>Cancel</button>
 

@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+   
+  }
+  .topnav{
+width: 100%;
+height: 55px;
+overflow: hidden;
+background: linear-gradient(to top,rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+display: flex;
+align-items: baseline;
+position: relative;
+box-shadow: 10px 1px 80px rgba(9, 0, 0, 0.1);
+
+  }
+  .usename{
+    background-color: rgb(199, 76, 72);
+    height: 100%;
+  }
+  .username1{
+margin:12px;
+margin-left: 10px;
+padding: auto;
+ }
+
+ .button-container1{
+    margin:10px;
+    margin-left: 10px;
+    padding: auto;
+
+ }
+  
+  .login-button{
+   
+    
+    background-color: transparent;
+    border-radius: 20%;
+    border-color: #ffff;
+   
+    width: 85px;
+  }
+  .login-button p{
+    font-size: 20px;
+    color: #fff;
+    
+  }
+  
+  /* animation */
+  .login-button {
+   
+    background: red;
+    animation: mymove 3s infinite;
+  }
+  
+  @keyframes mymove {
+    from {background-color: red;}
+    to {background-color: blue;}
+  }
+  .loglink{
+    background-color: rgb(199, 76, 72);
+    height: 100%;
+  
+  }
+  .loglink1{
+    margin:12px;
+margin-left: 10px;
+padding: auto;
+  }
+  .loglink1 span{
+    color: #fff;
+    font-size: 20px;     
+    
+  }
+ 

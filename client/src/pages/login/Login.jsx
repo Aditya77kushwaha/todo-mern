@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory,Link } from "react-router-dom";
+import "./Login.css";
 
 const Login = ({ client, setclient }) => {
   const [user, setuser] = useState({
@@ -16,7 +17,8 @@ const Login = ({ client, setclient }) => {
   };
 
   return (
-    <div className="register">
+    <div class="form">
+      <h2>Login Here</h2>
       <input
         type="email"
         name="email"
@@ -34,7 +36,7 @@ const Login = ({ client, setclient }) => {
         onChange={handleChange}
       />
       <button
-        className="login"
+        className="login-btn"
         onClick={() => {
           setislogin(true);
           axios
@@ -65,6 +67,10 @@ const Login = ({ client, setclient }) => {
           </>
         )}
       </button>
+      <p class="link"> <b> Don't have an account</b> <br />
+               <Link  to="" > <a >Sign Up </a>here
+               </Link >
+               </p>
     </div>
   );
 };

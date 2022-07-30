@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import "./Register.css"
 
 const Register = () => {
   const [user, setuser] = useState({
@@ -14,12 +15,14 @@ const Register = () => {
   };
   return (
     <div className="register">
+      <h2>Signup Here</h2>
       <input
+      className="username"
         type="text"
         name="username"
         value={user.username}
         placeholder="username"
-        className="username"
+        
         onChange={handleChange}
       />
       <input
@@ -39,7 +42,7 @@ const Register = () => {
         onChange={handleChange}
       />
       <button
-        className="register"
+        className="register-btn"
         onClick={() => {
           console.log(user);
           axios.post("http://localhost:8888/register", user).then((res) => {
