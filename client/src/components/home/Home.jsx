@@ -38,6 +38,7 @@ function Home({ client, setclient }) {
 
   function closeModal() {
     setIsOpen(false);
+    settxt("");
   }
   return (
     <div className="wrapper">
@@ -131,7 +132,7 @@ function Home({ client, setclient }) {
                         <span>Edit</span>
                       </div>
                       <br />
-                      <p className=" editor">``{todos[x].desc}``</p>
+                      <p className=" editor">{todos[x].desc}</p>
                     </div>
                   </div>
 
