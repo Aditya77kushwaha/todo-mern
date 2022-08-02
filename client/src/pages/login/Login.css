@@ -7,8 +7,8 @@
    
   }
   .form{
-    width:300px;
-    height:350px;
+    width:350px;
+    height:400px;
     background: linear-gradient(to top,rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
     position: absolute;
     top: 230px;
@@ -24,8 +24,9 @@
     font-size: 22px;
     background-color: #fff;
     border-radius: 10px;
-    margin-left: 13px;
+    margin-left: 39px;
     padding: 8px;
+    margin-top: 19px;
 }
 .form input{
     width: 240px;
@@ -36,10 +37,10 @@
     border-top: none;
     border-left: none;
     color: #fff;
-    font-size: 15px;
+    font-size: 18px;
     letter-spacing: 1px;
     margin-top: 30px;
-    margin-left: 5px;
+    margin-left: 30px;
     font-family: 'Poppins', sans-serif;
     align-items: center;
 
@@ -57,8 +58,8 @@
     background: #ff7200;
     border: none;
     margin-top: 30px;
-    margin-left: 5px;
-    font-size: 18px;
+    margin-left: 30px;
+    font-size: 20px;
     border-radius: 10px;
     cursor: pointer;
     color: #fff;
@@ -70,7 +71,7 @@
 }
 .form .link{
     font-family: Arial;
-    font-size: 14px;
+    font-size: 18px;
     padding-top: 20px;
     text-align: center;
     color: #fff;

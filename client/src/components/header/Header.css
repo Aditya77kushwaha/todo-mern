@@ -38,32 +38,32 @@ padding: auto;
   .login-button{
    
     
-    background-color: transparent;
-    border-radius: 20%;
-    border-color: #ffff;
+    background-color:#fff ;
+    border-radius: 10%;
+    /* border-color: #ffff; */
+    outline: none;
+    border-color: #fff;
+   
    
     width: 85px;
   }
-  .login-button p{
+  .login-button{
     font-size: 20px;
-    color: #fff;
+    background-color:#ff7200;
+    color:#fff ;
     
   }
-  
-  /* animation */
-  .login-button {
-   
-    background: #ff7200;
-    animation: mymove 6s infinite;
+  .login-button:hover{
+background-color: #fff;
+color: #ff7200;
+border-color: #ff7200;
   }
-  
-  @keyframes mymove {
-    from {background-color: rgba(9, 0, 0, 0.1);}
-    to {background-color: #ff7200;}
-  }
+
+
   .loglink{
     background-color:  #ff7200;
     height: 100%;
+    color: #fff;
   
   }
   .loglink1{
@@ -72,8 +72,14 @@ margin-left: 10px;
 padding: auto;
   }
   .loglink1 span{
-    color: #fff;
     font-size: 20px;     
     
+  }
+  .link-text{
+color: #fff;
+  }
+  .link-text:hover{
+    background-color: #fff;
+    color: #ff7200;
   }
  

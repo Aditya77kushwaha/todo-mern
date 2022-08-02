@@ -25,7 +25,7 @@ const Header = ({ client, setclient }) => {
                   history?.push("/login");
                 }}
               >
-                <p>Logout</p>
+              <p>Logout</p> 
               </button>
             </div>
           </div>
@@ -33,7 +33,8 @@ const Header = ({ client, setclient }) => {
       ) : (
         <div className="loglink">
           <div className="loglink1">
-            <Link className="link-text" to="/login">
+            <Link className="link-text" to="/login" style={{textDecoration: 'none'}}>
+            
               <span>Login</span>
             </Link>
           </div>
